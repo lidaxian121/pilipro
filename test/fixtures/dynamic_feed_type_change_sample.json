@@ -1,7 +1,7 @@
 {
   "has_more": true,
   "offset": "fixture_offset",
-  "total": 2,
+  "total": 3,
   "items": [
     {
       "id_str": "100000000000000001",
@@ -42,6 +42,48 @@
             "live_rcmd": {
               "reserve_type": "RESERVE_TYPE_NONE",
               "content": "{\"type\":1,\"live_play_info\":{\"uid\":10010,\"parent_area_name\":\"测试分区\",\"room_id\":1234567,\"live_id\":707000000000000001,\"live_status\":1,\"cover\":\"https://example.com/cover.jpg\",\"online\":42,\"area_name\":\"测试子分区\",\"title\":\"测试直播标题\",\"live_start_time\":1781000000,\"watched_show\":{\"switch\":true,\"num\":12,\"text_small\":\"12\",\"text_large\":\"12人看过\",\"icon\":\"\",\"icon_location\":\"\"}}}"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id_str": "100000000000000003",
+      "type": "DYNAMIC_TYPE_PGC_UNION",
+      "visible": true,
+      "modules": {
+        "module_author": {
+          "mid": 20020,
+          "name": "合成测试番剧出品",
+          "face": "https://example.com/face3.png",
+          "following": 1,
+          "pub_time": "3小时前",
+          "pub_ts": 1781000002,
+          "type": "AUTHOR_TYPE_PGC"
+        },
+        "module_dynamic": {
+          "major": {
+            "type": "MAJOR_TYPE_PGC",
+            "pgc": {
+              "type": 2,
+              "sub_type": "0",
+              "season_id": "216918",
+              "epid": "3915346",
+              "title": "合成测试番剧标题",
+              "cover": "https://example.com/pgc-cover.jpg",
+              "badge": {
+                "text": "综艺",
+                "bg_color": "#FB7299",
+                "color": "#FFFFFF"
+              },
+              "jump_url": "https://www.bilibili.com/bangumi/play/ep3915346",
+              "stat": {
+                "danmaku": "146",
+                "play": "314万",
+                "vt": ""
+              },
+              "enable_vt": 0,
+              "stat_hidden": 0
             }
           }
         }

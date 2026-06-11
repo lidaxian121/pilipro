@@ -1249,8 +1249,8 @@ class DynamicArchiveModel {
     stat = json['stat'] != null ? Stat.fromJson(json['stat']) : null;
     title = json['title'];
     type = json['type'];
-    epid = json['epid'];
-    seasonId = json['season_id'];
+    epid = SafeType.toInt(json['epid']);
+    seasonId = SafeType.toInt(json['season_id']);
   }
 }
 
