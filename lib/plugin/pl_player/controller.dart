@@ -55,6 +55,7 @@ import 'package:media_kit/media_kit.dart';
 import 'package:media_kit_video/media_kit_video.dart';
 import 'package:path/path.dart' as path;
 import 'package:path_provider/path_provider.dart';
+import 'package:wakelock_plus/wakelock_plus.dart';
 import 'package:window_manager/window_manager.dart';
 
 class PlPlayerController {
@@ -603,13 +604,16 @@ class PlPlayerController {
       });
     }
 
-    // _playerEventSubs = onPlayerStatusChanged.listen((PlayerStatus status) {
-    //   if (status == PlayerStatus.playing) {
-    //     WakelockPlus.enable();
-    //   } else {
-    //     WakelockPlus.disable();
-    //   }
-    // });
+    // wakelock 由单例 controller 按播放状态统一管理；
+    // 不能放在 PLVideoPlayer 的生命周期里，否则页面/小窗/全屏交接时
+    // 旧实例 dispose 的 disable 会晚于新实例的 enable 落地，导致播放中丢锁
+    _playerEventSubs = onPlayerStatusChanged.listen((PlayerStatus status) {
+      if (status == PlayerStatus.playing) {
+        WakelockPlus.enable();
+      } else {
+        WakelockPlus.disable();
+      }
+    });
   }
 
   // 获取实例 传参
@@ -1767,6 +1771,7 @@ class PlPlayerController {
     _timerForShowingVolume?.cancel();
     // _position.close();
     _playerEventSubs?.cancel();
+    WakelockPlus.disable();
     // _sliderPosition.close();
     // _sliderTempPosition.close();
     // _isSliderMoving.close();
