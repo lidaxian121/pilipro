@@ -1,0 +1,51 @@
+{
+  "has_more": true,
+  "offset": "fixture_offset",
+  "total": 2,
+  "items": [
+    {
+      "id_str": "100000000000000001",
+      "type": "DYNAMIC_TYPE_AV",
+      "visible": true,
+      "modules": {
+        "module_author": {
+          "mid": 10086,
+          "name": "合成测试UP主",
+          "face": "https://example.com/face.png",
+          "following": 1,
+          "jump_url": "//space.bilibili.com/10086/dynamic",
+          "label": "",
+          "pub_action": "投稿了视频",
+          "pub_time": "1小时前",
+          "pub_ts": 1781000000,
+          "type": "AUTHOR_TYPE_NORMAL"
+        }
+      }
+    },
+    {
+      "id_str": "100000000000000002",
+      "type": "DYNAMIC_TYPE_LIVE_RCMD",
+      "visible": true,
+      "modules": {
+        "module_author": {
+          "mid": 10010,
+          "name": "合成测试主播",
+          "face": "https://example.com/face2.png",
+          "following": 0,
+          "pub_time": "直播中",
+          "pub_ts": 1781000001,
+          "type": "AUTHOR_TYPE_NORMAL"
+        },
+        "module_dynamic": {
+          "major": {
+            "type": "MAJOR_TYPE_LIVE_RCMD",
+            "live_rcmd": {
+              "reserve_type": "RESERVE_TYPE_NONE",
+              "content": "{\"type\":1,\"live_play_info\":{\"uid\":10010,\"parent_area_name\":\"测试分区\",\"room_id\":1234567,\"live_id\":707000000000000001,\"live_status\":1,\"cover\":\"https://example.com/cover.jpg\",\"online\":42,\"area_name\":\"测试子分区\",\"title\":\"测试直播标题\",\"live_start_time\":1781000000,\"watched_show\":{\"switch\":true,\"num\":12,\"text_small\":\"12\",\"text_large\":\"12人看过\",\"icon\":\"\",\"icon_location\":\"\"}}}"
+            }
+          }
+        }
+      }
+    }
+  ]
+}

@@ -393,7 +393,7 @@ class ModuleAuthorModel extends Avatar {
     if (json['official'] != null) {
       officialVerify ??= BaseOfficialVerify.fromJson(json['official']); // opus
     }
-    following = json['following'];
+    following = SafeType.toBool(json['following']);
     jumpUrl = json['jump_url'];
     label = json['label'];
     pubAction = json['pub_action'];
@@ -1459,7 +1459,7 @@ class DynamicLiveModel {
       uid = livePlayInfo['uid'];
       parentAreaName = livePlayInfo['parent_area_name'];
       roomId = livePlayInfo['room_id'];
-      liveId = livePlayInfo['live_id'];
+      liveId = SafeType.toStr(livePlayInfo['live_id']);
       liveStatus = livePlayInfo['live_status'];
       cover = livePlayInfo['cover'];
       online = livePlayInfo['online'];
