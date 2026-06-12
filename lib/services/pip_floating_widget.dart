@@ -1,5 +1,6 @@
 // lib/services/pip_floating_widget.dart
 import 'dart:async';
+import 'package:floating/floating.dart';
 import 'package:flutter/material.dart';
 import 'package:PiliPro/services/pip_controller.dart';
 
@@ -55,6 +56,18 @@ class _PipFloatingWidgetState extends State<PipFloatingWidget> {
   Widget build(BuildContext context) {
     final screenSize = MediaQuery.of(context).size;
     final controller = PipController.to;
+
+    // 系统 PiP(桌面小窗)下整个 activity 被缩成小窗,此时应铺满渲染视频,
+    // 而不是显示带角落浮窗的整页内容(进出 PiP 会改变窗口尺寸触发重建)
+    if (Floating().isPipMode) {
+      final videoPlayer = controller.getVideoPlayer(true);
+      return Positioned.fill(
+        child: ColoredBox(
+          color: Colors.black,
+          child: AbsorbPointer(child: videoPlayer ?? const SizedBox.shrink()),
+        ),
+      );
+    }
 
     if (controller.position.value == null) {
       _position = Offset(

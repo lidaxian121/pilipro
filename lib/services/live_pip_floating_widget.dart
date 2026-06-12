@@ -1,5 +1,6 @@
 // lib/services/live_pip_floating_widget.dart
 import 'dart:async';
+import 'package:floating/floating.dart';
 import 'package:flutter/material.dart';
 import 'package:PiliPro/services/live_pip_controller.dart';
 import 'package:media_kit_video/media_kit_video.dart';
@@ -60,6 +61,23 @@ class _LivePipFloatingWidgetState extends State<LivePipFloatingWidget> {
 
     if (liveData == null) {
       return const SizedBox.shrink();
+    }
+
+    // 系统 PiP(桌面小窗)下铺满渲染直播画面,同 PipFloatingWidget
+    if (Floating().isPipMode) {
+      return Positioned.fill(
+        child: ColoredBox(
+          color: Colors.black,
+          child: AbsorbPointer(
+            child: liveData.plPlayerController.videoController != null
+                ? Video(
+                    controller: liveData.plPlayerController.videoController!,
+                    controls: NoVideoControls,
+                  )
+                : const SizedBox.shrink(),
+          ),
+        ),
+      );
     }
     // 把 pip 小窗的放在右下角,如果没有缓存的话
     if (controller.position.value == null) {
