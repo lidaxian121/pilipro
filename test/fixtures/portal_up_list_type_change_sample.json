@@ -1,0 +1,46 @@
+{
+  "live_users": {
+    "count": 2,
+    "group": "default",
+    "items": [
+      {
+        "face": "https://i0.hdslb.com/bfs/face/synthetic_live_1.jpg",
+        "is_reserve_recall": false,
+        "jump_url": "https://live.bilibili.com/21000001",
+        "mid": "10000001",
+        "room_id": "21000001",
+        "title": "合成测试直播间标题一",
+        "uname": "合成测试主播一"
+      },
+      {
+        "face": "https://i0.hdslb.com/bfs/face/synthetic_live_2.jpg",
+        "is_reserve_recall": true,
+        "jump_url": "https://live.bilibili.com/21000002",
+        "mid": "10000002",
+        "room_id": "21000002",
+        "title": "合成测试直播间标题二",
+        "uname": "合成测试主播二"
+      }
+    ]
+  },
+  "up_list": {
+    "has_more": true,
+    "offset": "5_1718000000",
+    "items": [
+      {
+        "face": "https://i0.hdslb.com/bfs/face/synthetic_up_1.jpg",
+        "has_update": true,
+        "is_reserve_recall": false,
+        "mid": 20000001,
+        "uname": "合成测试UP一"
+      },
+      {
+        "face": "https://i0.hdslb.com/bfs/face/synthetic_up_2.jpg",
+        "has_update": false,
+        "is_reserve_recall": false,
+        "mid": "20000002",
+        "uname": "合成测试UP二"
+      }
+    ]
+  }
+}

@@ -76,7 +76,11 @@ class DynamicsHttp {
       },
     );
     if (res.data['code'] == 0) {
-      return Success(FollowUpModel.fromJson(res.data['data']));
+      try {
+        return Success(FollowUpModel.fromJson(res.data['data']));
+      } catch (err) {
+        return Error(err.toString());
+      }
     } else {
       return Error(res.data['message']);
     }
@@ -92,7 +96,11 @@ class DynamicsHttp {
       },
     );
     if (res.data['code'] == 0) {
-      return Success(DynUpList.fromJson(res.data['data']));
+      try {
+        return Success(DynUpList.fromJson(res.data['data']));
+      } catch (err) {
+        return Error(err.toString());
+      }
     } else {
       return Error(res.data['message']);
     }

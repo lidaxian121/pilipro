@@ -1,3 +1,5 @@
+import 'package:PiliPro/utils/safe_type.dart';
+
 class FollowUpModel {
   FollowUpModel({
     this.liveUsers,
@@ -64,11 +66,11 @@ class LiveUserItem extends UpItem {
   String? title;
 
   LiveUserItem.fromJson(Map<String, dynamic> json)
-    : super(mid: json['mid'] ?? 0) {
+    : super(mid: SafeType.toInt(json['mid']) ?? 0) {
     face = json['face'];
     isReserveRecall = json['is_reserve_recall'];
     jumpUrl = json['jump_url'];
-    roomId = json['room_id'];
+    roomId = SafeType.toInt(json['room_id']);
     title = json['title'];
     uname = json['uname'];
   }
@@ -90,7 +92,7 @@ class UpItem {
   UpItem.fromJson(Map<String, dynamic> json) {
     face = json['face'];
     hasUpdate = json['has_update'];
-    mid = json['mid'] ?? 0;
+    mid = SafeType.toInt(json['mid']) ?? 0;
     uname = json['uname'];
   }
 }
